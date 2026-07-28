@@ -120,10 +120,9 @@
         },
       }
     }catch(_e){}</script><meta charset="utf-8"></head><body class="bg-background text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
-<!-- TopNavBar -->
-<nav class="fixed top-0 w-full bg-background/80 backdrop-blur-md dark:bg-background/80 border-b border-surface-variant/30 z-50">
-<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20">
-<div class="font-headline-md text-headline-md font-bold tracking-tighter text-primary">MOHAMMAD HADEE</div>
+<nav class="fixed top-0 w-full bg-background/90 backdrop-blur-md border-b border-surface-variant/30 z-50">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-4 sm:px-margin-mobile md:px-margin-desktop h-16 sm:h-20">
+<a href="#" class="font-headline-md text-lg sm:text-headline-md font-bold tracking-tighter text-primary">MOHAMMAD HADEE</a>
 <div class="hidden md:flex gap-8 items-center">
 <a href="#portfolio" class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors">Portfolio</a>
 <a href="#experience" class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors">Experience</a>
@@ -131,26 +130,34 @@
 <a href="#contact" class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors">Contact</a>
 <a href="https://github.com/mohammad-hadee7" target="_blank" rel="noopener noreferrer" class="font-body-md text-body-md text-primary-fixed hover:underline flex items-center gap-1"><span class="material-symbols-outlined text-sm">code</span> GitHub</a>
 </div>
-<button class="md:hidden text-primary">
-<span class="material-symbols-outlined">menu</span>
+<button id="mobile-menu-btn" class="md:hidden text-primary p-2 focus:outline-none" aria-label="Toggle Navigation Menu">
+<span class="material-symbols-outlined text-2xl">menu</span>
 </button>
+</div>
+<!-- Mobile Menu Drawer -->
+<div id="mobile-menu" class="hidden md:hidden bg-surface-container-low border-b border-surface-variant/30 px-6 py-6 space-y-4">
+<a href="#portfolio" class="block font-body-lg text-on-surface-variant hover:text-primary transition-colors mobile-link">Portfolio</a>
+<a href="#experience" class="block font-body-lg text-on-surface-variant hover:text-primary transition-colors mobile-link">Experience</a>
+<a href="#education" class="block font-body-lg text-on-surface-variant hover:text-primary transition-colors mobile-link">Education</a>
+<a href="#contact" class="block font-body-lg text-on-surface-variant hover:text-primary transition-colors mobile-link">Contact</a>
+<a href="https://github.com/mohammad-hadee7" target="_blank" rel="noopener noreferrer" class="block font-body-lg text-primary-fixed hover:underline mobile-link">GitHub Profile ↗</a>
 </div>
 </nav>
 <main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-24">
 <!-- Hero Section -->
-<section id="hero" class="min-h-[60vh] flex flex-col justify-center items-start gap-8 pt-8 pb-section-gap">
+<section id="hero" class="min-h-[50vh] sm:min-h-[60vh] flex flex-col justify-center items-start gap-6 sm:gap-8 pt-6 sm:pt-8 pb-12 md:pb-section-gap">
 <div class="space-y-4 max-w-4xl">
-<p class="font-label-mono text-label-mono text-primary-fixed tracking-widest uppercase">IT Support Specialist &amp; Interactive Media Professional</p>
-<h1 class="font-display-lg text-display-lg md:text-[84px] leading-none">Bridging <br><span class="text-primary-fixed">Infrastructure</span> &amp; Experience.</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-6">
+<p class="font-label-mono text-xs sm:text-label-mono text-primary-fixed tracking-widest uppercase">IT Support Specialist &amp; Interactive Media Professional</p>
+<h1 class="font-display-lg text-3xl sm:text-5xl md:text-7xl lg:text-[84px] leading-tight md:leading-none">Bridging <br><span class="text-primary-fixed">Infrastructure</span> &amp; Experience.</h1>
+<p class="font-body-md sm:font-body-lg text-sm sm:text-body-lg text-on-surface-variant max-w-2xl mt-4 sm:mt-6">
                     Dynamic and solutions-driven IT Support and Web Professional with a strong foundation in interactive media design, frontend development, and technical troubleshooting.
                 </p>
 </div>
-<div class="flex gap-4 mt-8">
-<a href="#portfolio" class="bg-primary-fixed text-on-primary-fixed px-8 py-4 rounded-lg font-bold flex items-center gap-2 transition-all duration-300 hover:brightness-110 glow-hover">
+<div class="flex flex-col sm:flex-row gap-4 mt-6 sm:mt-8 w-full sm:w-auto">
+<a href="#portfolio" class="bg-primary-fixed text-on-primary-fixed px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all duration-300 hover:brightness-110 glow-hover text-center">
                     View Projects <span class="material-symbols-outlined">arrow_forward</span>
 </a>
-<a href="#contact" class="border border-outline-variant text-primary px-8 py-4 rounded-lg font-medium hover:bg-surface-variant/20 transition-all">
+<a href="#contact" class="border border-outline-variant text-primary px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-medium hover:bg-surface-variant/20 transition-all text-center">
                     Let's Talk
                 </a>
 </div>
@@ -350,6 +357,20 @@
         // Dynamic Footer Year
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
         // Reveal on scroll logic
         const observerOptions = {
             threshold: 0.1
@@ -368,10 +389,13 @@
         // Smooth scroll for nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
