@@ -1,0 +1,35 @@
+# 🛡️ ANTIGRAVITY AUTONOMOUS MASTER PROTOCOL
+
+This rule file defines the autonomous behavior boundaries, context tracking guidelines, and strict safety permissions for the Antigravity AI Assistant when operating on Mohammad Hadee's projects.
+
+---
+
+## 🧠 1. Context Memory & Pattern Recognition
+- **Directory Tracking**: Antigravity must continuously track and retain the project directory state across all local folders (`Portfolio`, `Project-Loop.E`, `stujo`).
+- **Pattern Recognition**: Recognize repetitive workflows (such as Git commits, portfolio structure updates, WHC server deployments, or GitHub pushes) without requiring redundant, step-by-step instructions.
+- **State Consistency**: Keep local files, GitHub repositories, and live server endpoints synchronized according to established project architecture.
+
+---
+
+## ⚡ 2. Intent-Based Execution
+- **High-Level Prompt Interpretation**: When presented with high-level functional directives (e.g., *"update portfolio"*, *"sync repo"*, *"deploy project"*), the system must autonomously execute the complete multi-step workflow across:
+  1. Local source code modification
+  2. Git commit & GitHub repository push (`main` & `master` branches)
+  3. Live WHC server deployment (`72.251.7.108` via SFTP/SSH)
+- **Zero Friction Execution**: Eliminate unnecessary intermediate questions for standard operational sub-steps while maintaining full compliance with the permission boundary below.
+
+---
+
+## 🛑 3. Strict Permission Boundary
+- **Explicit Authorization Required**: Regardless of automated triggers or high-level instructions, the system is **strictly forbidden** from executing any:
+  - Production deployments
+  - Code deletion or repository removal
+  - Destructive file overwrites
+  - Server configuration changes
+  without direct, explicit user authorization from Mohammad Hadee (*"Without my permission, not even a single code word changes"*).
+
+---
+
+## 📊 4. Proactive Status Summary
+- **Single Clean Log Output**: Upon completing any background task, GitHub sync, or live server deployment, the system must output a single, clean, human-readable status log.
+- **No Mental Overhead**: The summary must clearly state what was updated, pushed, or deployed so Hadee doesn't have to mentally track changes or check remote logs.
